@@ -8,23 +8,23 @@
 </head>
 <body>
     <div id="app">
-            <div class="container">
-                <div class="sidebar">
-                    <section class="profile">
-                    </section>
-                    <section class="notifications">
-                    </section>
-                    <input type="text">
-                    <section class="contacts">
-                    </section>
+        <div class="container">
+            <div class="sidebar">
+                <section class="profile">
+                </section>
+                <section class="notifications">
+                </section>
+                <input type="text">
+                <section class="contacts" v-for="(item, index) in contatti">
+                    {{item}}
+                </section>
+            </div>
+            <div class="chats">
+                <div class="header-chat">
                 </div>
-                <div class="chats">
-                    <div class="header-chat">
-                    </div>
-                    <div class="messages-chat">
-                    </div>
-                    <div class="input-chat">
-                    </div>
+                <div class="messages-chat">
+                </div>
+                <div class="input-chat">
                 </div>
             </div>
         </div>
