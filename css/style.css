@@ -5,15 +5,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: #d9dbd5;
+    background: linear-gradient(#009687);
+    height: 100vh;
+}
+
+.profile-info img,
+.listener-img img {
+    width: 10%;
+    padding-right: 1rem;
+}
+
+i {
+    padding-right: 1rem;
 }
 
 .container {
     display: flex;
-    width: 70vw;
+    width: 80vw;
     height: 90vh;
     background-color: white;
+    margin: solid 1px grey;
 }
 
 .sidebar {
@@ -34,6 +46,7 @@ body {
     display: flex;
     align-items: center;
     background-color: #ebebeb;
+    height: 100px;
 }
 
 .notifications {
