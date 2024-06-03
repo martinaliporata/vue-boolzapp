@@ -11,11 +11,11 @@
 <body>
     <div id="app">
         <div class="container">
-            <div class="sidebar">
-                <section class="profile d-flex justify-content-between">
-                    <div class="profile-info d-flex">
+            <div class="sidebar d-flex justify-content-between">
+                <section class="profile d-flex">
+                    <div class="profile-info">
                         <img src="./imgs/avatar_io.jpg" alt="">
-                        <p class="normal-font">Sofia</p>
+                        <span class="normal-font">Sofia</span>
                     </div>
                     <div class="buttons d-flex">
                         <i class="fa-solid fa-circle-notch"></i>                        
@@ -32,32 +32,38 @@
                         <p class="small-font text-decoration-underline">Attiva notifiche desktop</p>
                     </div>
                 </section>
-                <input type="text">
+                <form class="d-flex">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input class="form-control" type="search" placeholder="cerca o inizia una nuova chat" aria-label="Search">
+                </form>
                 <section class="contacts" v-for="item in contatti">
                     {{item}}
                 </section>
             </div>
             <div class="chats">
-                <div class="header-chat d-flex justify-content-between">
-                    <div class="listener-img d-flex">
-                        <img src="./imgs/avatar_1.jpg" alt="">
-                        <div class="listener-info d-flex flex-column">
-                            <p class="normal-font">Michele</p>
-                            <p class="small-font">Ultimo accesso oggi alle 12:00</p>
-                        </div>
-                        </div>
+                <section class="header-chat d-flex justify-content-between">
+                    <img src="./imgs/avatar_1.jpg" alt="">
+                    <div class="listener-info">
+                        <p class="normal-font">Michele</p>
+                        <p class="small-font">Ultimo accesso oggi alle 12:00</p>
+                    </div>
                     <div class="buttons d-flex">
                         <i class="fa-solid fa-magnifying-glass"></i>                      
                         <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
-                </div>
+                </section>
                 <div class="messages-chat">
                     <p :class="green"></p>
                         {{message}}
                     <p :class="white"></p>
                 </div>
-                <div class="input-chat" v-model="message">
+                <div class="input-chat d-flex justify-content-between" v-model="message">
+                    <i class="fa-solid fa-face-smile"></i>
+                    <form class="d-flex col">
+                        <input class="form-control" type="search" placeholder="cerca o inizia una nuova chat" aria-label="Search">
+                    </form>
+                    <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
         </div>

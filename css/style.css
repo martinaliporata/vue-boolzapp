@@ -10,9 +10,8 @@ body {
     height: 100vh;
 }
 
-.profile-info img,
-.listener-img img {
-    width: 15%;
+img {
+    width: 30%;
     padding-right: 1rem;
 }
 
@@ -56,11 +55,14 @@ i {
     display: flex;
     align-items: center;
     background-color: #ebebeb;
-    height: 100px;
+    height: 45px;
 }
 
-.profile-info {
+.header-chat {
+    display: flex;
+    align-items: center;
     background-color: #ebebeb;
+    height: 45px;
 }
 
 .notifications {
@@ -72,13 +74,6 @@ i {
 
 .contacts {
     overflow-y: auto;
-}
-
-.header-chat {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    background-color: #ebebeb;
 }
 
 .white {
