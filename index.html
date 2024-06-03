@@ -15,7 +15,7 @@
                 <section class="notifications">
                 </section>
                 <input type="text">
-                <section class="contacts" v-for="(item, index) in contatti">
+                <section class="contacts" v-for="item in contatti">
                     {{item}}
                 </section>
             </div>
@@ -23,8 +23,11 @@
                 <div class="header-chat">
                 </div>
                 <div class="messages-chat">
+                    <p :class="green"></p>
+                        {{message}}
+                    <p :class="white"></p>
                 </div>
-                <div class="input-chat">
+                <div class="input-chat" v-model="message">
                 </div>
             </div>
         </div>

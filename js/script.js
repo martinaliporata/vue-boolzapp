@@ -36,7 +36,8 @@ createApp ({
                     name: 'Davide',
                     image: './imgs/avatar_8.jpg'
                 },
-            ]
+            ],
+            message: '',
         }
     },
     methods

@@ -54,6 +54,14 @@ body {
     border-bottom: 1px solid #ebebeb;
 }
 
+.white {
+    background-color: white;
+}
+
+.green {
+    background-color: green;
+}
+
 .input-chat {
     display: flex;
     padding: 10px;
