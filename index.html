@@ -15,7 +15,7 @@
                 <section class="profile d-flex justify-content-between">
                     <div class="profile-info d-flex">
                         <img src="./imgs/avatar_io.jpg" alt="">
-                        <p>Sofia</p>
+                        <p class="normal-font">Sofia</p>
                     </div>
                     <div class="buttons d-flex">
                         <i class="fa-solid fa-circle-notch"></i>                        
@@ -23,7 +23,14 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </section>
-                <section class="notifications">
+                <section class="notifications d-flex">
+                    <div class="notifications-img">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="notifications-info">
+                        <p class="normal-font">Ricevi notifiche di nuovi messaggi</p>
+                        <p class="small-font text-decoration-underline">Attiva notifiche desktop</p>
+                    </div>
                 </section>
                 <input type="text">
                 <section class="contacts" v-for="item in contatti">
@@ -31,12 +38,12 @@
                 </section>
             </div>
             <div class="chats">
-                <div class="header-chat">
-                    <div class="listener-img d-flex justify-content-between">
+                <div class="header-chat d-flex justify-content-between">
+                    <div class="listener-img d-flex">
                         <img src="./imgs/avatar_1.jpg" alt="">
                         <div class="listener-info d-flex flex-column">
-                            <p>Michele</p>
-                            <p>Ultimo accesso oggi alle 12:00</p>
+                            <p class="normal-font">Michele</p>
+                            <p class="small-font">Ultimo accesso oggi alle 12:00</p>
                         </div>
                         </div>
                     <div class="buttons d-flex">
