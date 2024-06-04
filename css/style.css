@@ -2,17 +2,24 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #d9dbd5;
-    background: linear-gradient(#009687);
+    background-image: linear-gradient(to bottom,
+    #009687 0px,
+    #009687 15vh,
+    white 15vh,
+    white 100%);
     height: 100vh;
+    width: 100%;
 }
 
 img {
-    width: 30%;
+    height: 100%;
     padding-right: 1rem;
+    border-radius: 50%;
+}
+
+button {
+    border: none;
 }
 
 .normal-font {
@@ -29,40 +36,60 @@ i {
     color: #b0b0b0;
 }
 
-.container {
-    display: flex;
-    width: 80vw;
-    height: 90vh;
+#app {
+    width: 80%;
+    height: 90%;
     background-color: white;
     margin: solid 1px grey;
+}
+
+.container {
+    height: 100%;
 }
 
 .sidebar {
     width: 30%;
     border-right: 1px solid gray;
-    display: flex;
-    flex-direction: column;
-    padding: 13px;
 }
 
 .chats {
     width: 70%;
-    display: flex;
-    flex-direction: column;
+    background-image: url(../imgs/mine.jpg);
+    background-repeat: repeat;
+    background-size: contain;
 }
 
-.profile {
-    display: flex;
-    align-items: center;
-    background-color: #ebebeb;
-    height: 45px;
-}
-
+.profile-info,
 .header-chat {
-    display: flex;
-    align-items: center;
     background-color: #ebebeb;
     height: 45px;
+}
+
+.messages-chat {
+    padding: 0 3rem;
+}
+
+.single-message.sent{
+    padding: 2rem;
+    background-color: #d6fabb;
+    width: 40%;
+    border-radius: .5rem;
+    align-self: end;
+    margin-bottom: 1rem;
+
+}
+
+.single-message.received{
+    padding: 2rem;
+    background-color: white;
+    width: 40%;
+    border-radius: .5rem;
+    align-self: start;
+    margin-bottom: 1rem;
+}
+
+.profile{
+    background-color: #ebebeb;
 }
 
 .notifications {
@@ -72,7 +99,7 @@ i {
     text-align: center;
 }
 
-.contacts {
+.contatti {
     overflow-y: auto;
 }
 
@@ -85,7 +112,6 @@ i {
 }
 
 .input-chat {
-    display: flex;
     padding: 10px;
     border-top: 1px solid #ccc;
     background-color: #edeae8;

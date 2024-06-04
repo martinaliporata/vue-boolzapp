@@ -8,14 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="d-flex justify-content-center">
     <div id="app">
-        <div class="container">
-            <div class="sidebar d-flex justify-content-between">
-                <section class="profile d-flex">
-                    <div class="profile-info">
+        <div class="container d-flex">
+            <div class="sidebar d-flex flex-column">
+                <section class="profile d-flex align-items-center justify-content-between">
+                    <div class="profile-info d-flex">
                         <img src="./imgs/avatar_io.jpg" alt="">
-                        <span class="normal-font">Sofia</span>
+                        <p class="normal-font">Sofia</p>
                     </div>
                     <div class="buttons d-flex">
                         <i class="fa-solid fa-circle-notch"></i>                        
@@ -34,18 +34,18 @@
                 </section>
                 <form class="d-flex">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input class="form-control" type="search" placeholder="cerca o inizia una nuova chat" aria-label="Search">
+                    <input class="form-control" type="search" placeholder="Cerca o inizia una nuova chat" aria-label="Search">
                 </form>
-                <section class="contacts" v-for="item in contatti">
-                    {{item}}
+                <section class="contatti" v-for="(item,index) in contacts" :key="index" @click="clickContatto">
+                    {{item.name}}
                 </section>
             </div>
-            <div class="chats">
-                <section class="header-chat d-flex justify-content-between">
+            <div class="chats d-flex flex-column justify-content-between">
+                <section class="header-chat d-flex justify-content-between align-items-center">
                     <img src="./imgs/avatar_1.jpg" alt="">
-                    <div class="listener-info">
-                        <p class="normal-font">Michele</p>
-                        <p class="small-font">Ultimo accesso oggi alle 12:00</p>
+                    <div class="listener-info d-flex flex-column">
+                        <span class="normal-font">Michele</span>
+                        <span class="small-font">Ultimo accesso oggi alle 12:00</span>
                     </div>
                     <div class="buttons d-flex">
                         <i class="fa-solid fa-magnifying-glass"></i>                      
@@ -53,17 +53,24 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </section>
-                <div class="messages-chat">
-                    <p :class="green"></p>
-                        {{message}}
-                    <p :class="white"></p>
+                <div class="messages-chat d-flex flex-column">                    
+                    <article class="single-message sent">
+                        <p :class="green">{{contacts[0].messages[0].message}}</p>
+                    </article>
+                    <article class="single-message received">
+                        <p :class="white"></p>
+                    </article>
                 </div>
                 <div class="input-chat d-flex justify-content-between" v-model="message">
-                    <i class="fa-solid fa-face-smile"></i>
+                    <button>
+                        <i class="fa-solid fa-face-smile"></i>
+                    </button>
                     <form class="d-flex col">
                         <input class="form-control" type="search" placeholder="cerca o inizia una nuova chat" aria-label="Search">
                     </form>
-                    <i class="fa-solid fa-microphone"></i>
+                    <button>
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
                 </div>
             </div>
         </div>
