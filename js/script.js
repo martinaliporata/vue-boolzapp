@@ -177,7 +177,7 @@ createApp ({
 
         // getFilteredMessagesSent: function() {
         //     let activeContact = this.contacts[this.activeContactIndex];
-        //     return activeContact.messages.filter(function(message) {
+        //     return activeContact.messages.filter(message) {
         //         return message.status === 'sent';
         //     });
         // },
@@ -186,7 +186,7 @@ createApp ({
 
         // getFilteredMessagesReceived: function() {
         //     let activeContact = this.contacts[this.activeContactIndex];
-        //     return activeContact.messages.filter(function(message) {
+        //     return activeContact.messages.filter(message) {
         //         return message.status === 'received';
         //     });
         // }
