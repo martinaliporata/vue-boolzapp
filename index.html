@@ -53,12 +53,12 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </section>
-                <div class="messages-chat d-flex flex-column">                    
+                <div class="messages-chat d-flex flex-column"v-for="(item,index) in contacts" :key="index" >                    
                     <article class="single-message sent">
-                        <p :class="green">{{contacts[0].messages[0].message}}</p>
+                        <p>{{contacts[0].messages.message}}</p>
                     </article>
                     <article class="single-message received">
-                        <p :class="white"></p>
+                        <p>{{contacts[0].messages[0].message}}</p>
                     </article>
                 </div>
                 <div class="input-chat d-flex justify-content-between" v-model="message">

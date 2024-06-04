@@ -70,7 +70,7 @@ i {
 }
 
 .single-message.sent{
-    padding: 2rem;
+    padding: 1rem;
     background-color: #d6fabb;
     width: 40%;
     border-radius: .5rem;
@@ -80,7 +80,7 @@ i {
 }
 
 .single-message.received{
-    padding: 2rem;
+    padding: 1rem;
     background-color: white;
     width: 40%;
     border-radius: .5rem;
