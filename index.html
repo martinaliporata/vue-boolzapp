@@ -36,7 +36,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input class="form-control" type="search" placeholder="Cerca o inizia una nuova chat" aria-label="Search">
                 </form>
-                <section class="contatti" v-for="(item,index) in contacts" :key="index">
+                <section class="contatti" v-for="(item,index) in contacts" :key="index" @click="changeActiveContact(index)">
                     <img :src="item.avatar" alt="avatar">{{item.name}}
                 </section>
             </div>
@@ -53,18 +53,12 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </section>
-                <div class="messages-chat d-flex flex-column" v-for="(item,index) in contacts" :key="index" >                    
+                <div class="messages-chat d-flex flex-column" v-for="(item,index) in contacts" :key="index">                    
                     <article class="single-message sent">
-                        <div class="messages">
-                            <div v-for="(message, index) in getFilteredMessagesSent" :key="index" :class="['message', message.status]">
-                                {{message.date}} - {{message.message}}
-                            </div>
-                        </div>
+                        {{contacts[index].messages[index].message}}
                     </article>
                     <article class="single-message received">
-                        <div v-for="(message, index) in getFilteredMessagesReceived" :key="index" :class="['message', message.status]">
-                            {{message.date}} - {{message.message}}
-                        </div>
+                        {{item.messages[1].message}}
                     </article>
                 </div>
                 <div class="input-chat d-flex justify-content-between" v-model="message">

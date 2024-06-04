@@ -167,36 +167,11 @@ createApp ({
                 }
             ],
             activeContactIndex: 0,
-            getFilteredMessagesReceived: [],
-            getFilteredMessagesSent: [],
         }
     },
     methods: {
-
-        // filtra i messaggi del contatto attivo per restituire quelli che hanno lo status sent
-
-        getFilteredMessagesSent: function() {
-            let activeContact = this.contacts[this.activeContactIndex];
-            return activeContact.messages.filter(function(message) {
-                return message.status === 'sent';
-            });
+        changeActiveContact: function(index){
+            this.activeContactIndex=index;
         },
-
-        // filtra i messaggi del contatto attivo per restituire quelli che hanno lo status received
-
-        getFilteredMessagesReceived: function() {
-            let activeContact = this.contacts[this.activeContactIndex];
-            return activeContact.messages.filter(function(message) {
-                return message.status === 'received';
-            });
-        },
-
-        filterItems(contacts, query) {
-            return contacts.filter((el) => el.toLowerCase().includes(query.toLowerCase()))
-
-        // let query = "an";
-        // let filteredNames = filterItems(contacts, query);
-        // return filteredNames;
-        }
     }
 }).mount('#app')
