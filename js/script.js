@@ -166,11 +166,29 @@ createApp ({
                     ],
                 }
             ],
+            activeContactIndex: 0,
+            getFilteredMessagesReceived: '',
+            getFilteredMessagesSent: '',
         }
     },
-    // methods: {
-    //     clickContatto function (){
+    methods: {
 
-    //     }
-    // } 
+        // filtra i messaggi del contatto attivo per restituire quelli che hanno lo status s
+
+        // getFilteredMessagesSent: function() {
+        //     let activeContact = this.contacts[this.activeContactIndex];
+        //     return activeContact.messages.filter(function(message) {
+        //         return message.status === 'sent';
+        //     });
+        // },
+
+        // filtra i messaggi del contatto attivo per restituire quelli che hanno lo status received
+
+        // getFilteredMessagesReceived: function() {
+        //     let activeContact = this.contacts[this.activeContactIndex];
+        //     return activeContact.messages.filter(function(message) {
+        //         return message.status === 'received';
+        //     });
+        // }
+    }
 }).mount('#app')
