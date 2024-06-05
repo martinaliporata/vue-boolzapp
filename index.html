@@ -32,12 +32,16 @@
                         <p class="small-font text-decoration-underline">Attiva notifiche desktop</p>
                     </div>
                 </section>
-                <form class="d-flex">
+                <div class="d-flex">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input class="form-control" type="search" placeholder="Cerca o inizia una nuova chat" aria-label="Search">
-                </form>
+                    <input @change="getFilteredUsers" v-model="searchContact" type="search" placeholder="Cerca o inizia una nuova chat" aria-label="Search">
+                </div>
                 <section class="contatti" v-for="(item,index) in contacts" :key="index" @click="changeActiveContact(index)">
-                    <img :src="item.avatar" alt="avatar">{{item.name}}
+                    <!-- nasconda o mostra elemento -->
+                    <div v-if="item.visible ? true : false">
+                        <img :src="item.avatar" alt="avatar">
+                        <span>{{item.name}}</span>
+                    </div>
                 </section>
             </div>
             <div class="chats d-flex flex-column justify-content-between">
@@ -53,21 +57,22 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </section>
-                <div class="messages-chat d-flex flex-column" v-for="(item,index) in contacts" :key="index">                    
-                    <article class="single-message sent">
-                        {{contacts[index].messages[index].message}}
-                    </article>
-                    <article class="single-message received">
-                        {{item.messages[1].message}}
-                    </article>
+
+                <div class="messages-container">
+                    <div class="messages-chat d-flex flex-column" v-for="(item, index) in contacts[activeContactIndex].messages" :key="index" @click="changeActiveContact(index)">
+                        <article class="single-message" :class="item.status ==='sent' ? 'sent' : 'received'">
+                            {{item.message}}-{{item.date}}-{{item.status}}
+                        </article>
+                    </div>
                 </div>
-                <div class="input-chat d-flex justify-content-between" v-model="message">
+
+                <div class="input-chat d-flex justify-content-between">
                     <button>
                         <i class="fa-solid fa-face-smile"></i>
                     </button>
-                    <form class="d-flex col">
-                        <input class="form-control" type="search" placeholder="cerca o inizia una nuova chat" aria-label="Search">
-                    </form>
+                    <div class="d-flex col">
+                        <input v-model="newMessage" @keyup.enter="handleNewMessage" class="form-control" type="search" placeholder="cerca o inizia una nuova chat" aria-label="Search">
+                    </div>
                     <button>
                         <i class="fa-solid fa-microphone"></i>
                     </button>
@@ -80,5 +85,7 @@
     <script src="./js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.1/build/global/luxon.min.js"></script>
 </body>
 </html>

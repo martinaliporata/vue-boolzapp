@@ -167,11 +167,45 @@ createApp ({
                 }
             ],
             activeContactIndex: 0,
+            newMessage: '',
+            searchContact: '',
         }
     },
     methods: {
         changeActiveContact: function(index){
             this.activeContactIndex=index;
         },
+
+        automaticUserAnswer: function(){
+            const newItem = {
+                date: luxon.DateTime.now().toFormat('dd/MM/yyyy-HH:mm'),
+                message: 'ok',
+                status: 'received',
+            };
+            this.contacts[this.activeContactIndex].messages.push(newItem)
+        },
+
+        handleNewMessage: function(){
+            const newItem = {
+                date: luxon.DateTime.now().toFormat('dd/MM/yyyy-HH:mm'),
+                message: this.newMessage,
+                status: 'sent',
+            };
+            this.contacts[this.activeContactIndex].messages.push(newItem)
+
+            setTimeout(this.automaticUserAnswer, 1000)
+        },
+
+        getFilteredUsers: function(){
+            const filteredTextLower = this.searchContact.toLowerCase()
+            this.contacts.forEach((contact)=>{
+                const nameLower = contact.name.toLowerCase()
+                if(nameLower.includes(filteredTextLower)){
+                    contact.visible = true
+                } else {
+                    contact.visible = false
+                }
+            })
+        }
     }
 }).mount('#app')
